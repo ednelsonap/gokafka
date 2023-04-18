@@ -11,7 +11,7 @@ func main() {
 	producer := NewKafkaProducer()
 	Publish("mensagem", "teste", producer, nil, deliveryChan)
 
-	go DeliveryReport(deliveryChan) // executa em outra tread para ser async
+	go DeliveryReport(deliveryChan) // executa em outra thread para ser async
 	producer.Flush(1000)
 
 	// trecho de código responsável por pegar as informações da publicação da mensagem de forma síncrona
